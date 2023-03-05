@@ -1,6 +1,5 @@
 ---
 galaxy_info:
-  author: ome-devel@lists.openmicroscopy.org.uk
   description: Upstream PostgreSQL server
   company: Open Microscopy Environment
   license: BSD

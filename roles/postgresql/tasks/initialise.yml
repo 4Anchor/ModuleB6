@@ -1,5 +1,5 @@
 ---
-# tasks file for ome.postgresql
+# tasks file for postgresql
 
 - block:
     - name: postgres | set permissions on data directory
@@ -21,13 +21,6 @@
       environment:
         PGSETUP_INITDB_OPTIONS: >-
           --encoding=UTF8 --locale=en_US.UTF-8 --auth-host=md5
-
-    - name: Install acl
-      apt:
-        state: latest
-        update_cache: true
-        pkg:
-          - acl
 
     - name: postgres | postgresql config file
       template:

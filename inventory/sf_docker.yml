@@ -1,0 +1,9 @@
+sf_docker:
+  hosts:
+    ansible-app1:
+      ansible_host: 158.160.52.110
+    ansible-app2:
+      ansible_host: 158.160.47.78
+  vars:
+    ansible_user: anchor
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa

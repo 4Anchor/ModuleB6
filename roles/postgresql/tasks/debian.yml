@@ -8,6 +8,14 @@
       {{ postgresql_dist_debian.basename }}
     state: present
 
+
+- name: Install acl
+  apt:
+    state: latest
+    update_cache: true
+    pkg:
+      - acl
+
 - name: postgres | install ansible prerequisites
   become: true
   apt:

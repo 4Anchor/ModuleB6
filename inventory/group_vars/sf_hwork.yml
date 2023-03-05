@@ -1,3 +1,0 @@
----
-postgresql_version: 12
-datadir: /var/lib/postgresql/{{ postgresql_version }}/main

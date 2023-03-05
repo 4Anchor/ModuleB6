@@ -1,6 +1,5 @@
-- hosts: sf_hwork
+- hosts: sf_hwork_pg
   become: True
-  become_user: root
   roles:
     - role: postgresql
   tags: deploy_pg
@@ -11,5 +10,17 @@
       restrict: True
   - postgresql_users:
     - user: user1
-      password: Abc_1234
+      password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37613634333966356161303162343333363030343065336437333637616566636137633036633139
+          6161656631383330633139626237303934393666623231370a303138323830376562356635353964
+          32353732396561623564653665666131623934666564333131613438636536343762643039303137
+          3064306463336264650a373033633739373764663137336133613062633332626139306562366162
+          3739
       databases: [homedb]
+
+- hosts: sf_docker
+  become: True
+  tags: deploy_docker
+  roles:
+    - docker

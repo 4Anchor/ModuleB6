@@ -2,42 +2,20 @@
 
 ## Роли
 
-### Postfix
+### Install PostgreSQL
 
-Используется если надо установить Posfix
-
-```
-ansible-playbook -i inventory/sf_postfix.yml --skip-tags=drop playbooks/playbook-all.yml --check
-```
-
-
-### Postfix Drop
-
-Используется если надо удалить Postfix
+Используется если надо установить DB PostgreSQL 
 
 ```
-ansible-playbook -i inventory/sf_postfix.yml --tags=drop playbooks/playbook-all.yml -v 
+ansible-playbook --vault-password-file=/opt/vault-pass -i inventory/sf_hwork_pg.yml --tags=deploy_pg playbooks/playbook_pg.yml -v
 ```
 
-### vsftpd
 
-Используется если надо установить vsftpd
+### Install  Docker
 
-```
-ansible-playbook -i inventory/sf_hwork.yml --tags=deploy_vsftpd playbooks/playbook-all.yml -v
-```
-
-### Docker
-
-Используется если надо установить docker
+Используется если надо установить Docker+Docker-compose на группе хостов
 
 ```
-ansible-playbook -i inventory/localhost.yml playbooks/playbook_h.yml -v
+ansible-playbook -i inventory/sf_docker.yml --tags=deploy_docker playbooks/playbook_pg.yml -v
 ```
-### Playbook добавления пользователя
 
-Используется для до добавления пользователя с правами sudo на удаленный хост.
-
-```
-ansible-playbook --vault-password-file=/opt/vault-pass -i inventory/sf_hwork.yml playbooks/add_user.yml -v
-```
