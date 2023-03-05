@@ -1,0 +1,15 @@
+- hosts: sf_hwork
+  become: True
+  become_user: root
+  roles:
+    - role: postgresql
+  tags: deploy_pg
+  vars:
+  - postgresql_databases:
+    - name: homedb
+      owner: user1
+      restrict: True
+  - postgresql_users:
+    - user: user1
+      password: Abc_1234
+      databases: [homedb]
